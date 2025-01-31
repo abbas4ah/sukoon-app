@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sukoon - Find Peace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #f0f4f8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background-image: linear-gradient(135deg, #e6f3ff 0%, #f8f9fa 100%);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: #2a5a78;
+            font-family: 'Dancing Script', cursive;
+            margin-bottom: 0.5rem;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .quote-box {
+            margin: 2rem 0;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .quote-source {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 1rem;
+        }
+
+        .quote-explanation {
+            color: #5a6d7e;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+            line-height: 1.5;
+            padding: 0 1rem;
+        }
+
+        .button {
+            background: #2a5a78;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s;
+            margin: 0.5rem;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            margin-top: 2rem;
+            color: #7f8c8d;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .quote-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Sukoon</div>
+        <p>Find peace in sacred wisdom</p>
+    </div>
+
+    <div class="container">
+        <div class="quote-box">
+            <p class="quote-text" id="quote">Click below to receive your Sukoon moment</p>
+            <p class="quote-source" id="source"></p>
+            <p class="quote-explanation" id="explanation"></p>
+        </div>
+        <button class="button" onclick="generateQuote()">Give Me Sukoon</button>
+        <button class="button" onclick="shareQuote()">Share Hope</button>
+    </div>
+
+    <div class="footer">
+        <p>© 2023 Sukoon - A sanctuary for the soul</p>
+    </div>
+
+    <script>
+        const quotes = [
+            {
+                text: "Verily, with hardship comes ease.",
+                source: "Quran 94:5",
+                explanation: "This verse reminds us that no difficulty lasts forever. After every challenge, Allah provides relief. Trust in His timing."
+            },
+            {
+                text: "Allah does not burden a soul beyond that it can bear.",
+                source: "Quran 2:286",
+                explanation: "You are stronger than you think. Allah knows your capacity and will never give you more than you can handle with His help."
+            },
+            {
+                text: "Be mindful of Allah, and He will protect you.",
+                source: "Prophet Muhammad ﷺ (Sahih Muslim)",
+                explanation: "When you maintain your connection with Allah through good deeds and remembrance, He becomes your guardian in all matters."
+            },
+            {
+                text: "The wound is the place where the Light enters you.",
+                source: "Rumi",
+                explanation: "Our struggles and pain can become openings for spiritual growth and divine guidance if we approach them with patience."
+            },
+            {
+                text: "Do not grieve. Indeed, Allah is with us.",
+                source: "Quran 9:40",
+                explanation: "Even in moments of loneliness or difficulty, remember Allah is always with you, watching over and supporting you."
+            }
+        ];
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quote = quotes[randomIndex];
+            document.getElementById('quote').innerHTML = `"${quote.text}"`;
+            document.getElementById('source').innerHTML = `- ${quote.source}`;
+            document.getElementById('explanation').innerHTML = `${quote.explanation}`;
+            
+            // Add subtle animation
+            document.querySelector('.quote-box').style.animation = 'none';
+            setTimeout(() => {
+                document.querySelector('.quote-box').style.animation = 'fadeIn 0.5s';
+            }, 10);
+        }
+
+        function shareQuote() {
+            const quote = document.getElementById('quote').innerText;
+            const source = document.getElementById('source').innerText;
+            const explanation = document.getElementById('explanation').innerText;
+            const text = `${quote}\n${source}\n\nExplanation: ${explanation}\n\nShared via Sukoon App - Find Your Peace`;
+            
+            if(navigator.share) {
+                navigator.share({
+                    title: 'My Sukoon Moment',
+                    text: text
+                });
+            } else {
+                alert('Share this wisdom:\n\n' + text);
+            }
+        }
+
+        // Generate first quote on load
+        generateQuote();
+    </script>
+</body>
+</html>
