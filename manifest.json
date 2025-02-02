@@ -3,5 +3,17 @@
   "theme_color": "#000000",
   "background_color": "#000000",
   "short_name": "Sukoon",
-  "description": "Sukoon is a sanctuary for the soul, designed to bring peace and tranquility through timeless Islamic wisdom. Whether you’re seeking comfort during tough times or simply looking to nurture your mental well-being, Sukoon provides daily Islamic quotes that offer deep reflections on peace, resilience, and divine guidance."
+  "description": "Sukoon is a sanctuary for the soul, designed to bring peace and tranquility through timeless Islamic wisdom. Whether you’re seeking comfort during tough times or simply looking to nurture your mental well-being, Sukoon provides daily Islamic quotes that offer deep reflections on peace, resilience, and divine guidance.",
+  "icons": [
+    {
+      "src": "https://github.com/abbas4ah/sukoon-app/raw/main/Sukoon%20icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://github.com/abbas4ah/sukoon-app/raw/main/Sukoon%20icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
