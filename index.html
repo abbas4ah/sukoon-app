@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sukoon</title>
-  
-  <!-- Link to the logo icon (favicon) -->
-  <link rel="icon" href="https://github.com/abbas4ah/sukoon-app/raw/main/Sukoon%20icon.png" type="image/png">
-
-  <!-- Other meta tags, links, or styles here -->
-</head>
-<body>
-</body>
-</html>
-
-    <link rel="manifest" href="manifest.json">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sukoon - Islamic Wisdom for Peace</title>
@@ -45,10 +28,17 @@
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 3rem;
             color: #2a5a78;
             font-family: 'Dancing Script', cursive;
             margin-bottom: 0.5rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-top: 0.5rem;
         }
 
         .container {
@@ -59,6 +49,7 @@
             width: 100%;
             max-width: 400px;
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .quote-box {
@@ -71,6 +62,7 @@
             padding: 1.5rem;
             border-radius: 10px;
             border: 1px solid #e0e0e0;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
         .quote-text {
@@ -79,6 +71,7 @@
             line-height: 1.5;
             margin-bottom: 1rem;
             font-weight: 500;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
         .quote-source {
@@ -86,6 +79,7 @@
             color: #7f8c8d;
             margin-top: 1rem;
             font-size: 0.9rem;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
         .quote-explanation {
@@ -94,6 +88,7 @@
             font-size: 0.9rem;
             line-height: 1.4;
             padding: 0 0.5rem;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
         .button {
@@ -104,14 +99,16 @@
             border-radius: 25px;
             cursor: pointer;
             font-size: 0.9rem;
-            transition: transform 0.2s;
+            transition: transform 0.2s, background 0.3s;
             margin: 0.5rem;
             width: 100%;
             max-width: 200px;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .button:hover {
             transform: translateY(-2px);
+            background: #1e4258;
         }
 
         .button-row {
@@ -126,6 +123,7 @@
             color: #7f8c8d;
             text-align: center;
             font-size: 0.8rem;
+            animation: fadeIn 1s ease-in-out;
         }
 
         /* Popup Modal Styles */
@@ -139,6 +137,7 @@
             background: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
+            animation: fadeIn 0.3s ease-in-out;
         }
 
         .modal-content {
@@ -149,6 +148,7 @@
             max-width: 400px;
             width: 90%;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.3s ease-in-out;
         }
 
         .modal-content p {
@@ -180,9 +180,21 @@
             color: #7f8c8d;
         }
 
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @media (max-width: 480px) {
             .logo {
-                font-size: 1.8rem;
+                font-size: 2.5rem;
             }
 
             .quote-text {
@@ -204,7 +216,6 @@
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <!-- Add html2canvas library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
@@ -257,166 +268,6 @@
                 text: "Be mindful of Allah, and He will protect you.",
                 source: "Prophet Muhammad ﷺ (Sahih Muslim)",
                 explanation: "Conscious connection with the Divine becomes your spiritual shield."
-            },
-            {
-                text: "The wound is the place where the Light enters you.",
-                source: "Rumi",
-                explanation: "Pain can be a gateway to spiritual awakening if approached with faith."
-            },
-            {
-                text: "Do not grieve. Indeed, Allah is with us.",
-                source: "Quran 9:40",
-                explanation: "Divine presence transcends physical companionship. You are never alone."
-            },
-            {
-                text: "And He found you lost and guided you.",
-                source: "Quran 93:7",
-                explanation: "Allah guides those who feel spiritually adrift. Surrender to His direction."
-            },
-            {
-                text: "Speak good words to people.",
-                source: "Quran 2:83",
-                explanation: "Kind speech is both social responsibility and spiritual purification."
-            },
-            {
-                text: "Allah is the ally of those who believe.",
-                source: "Quran 2:257",
-                explanation: "Divine support outmatches any worldly alliance."
-            },
-            {
-                text: "Whoever puts trust in Allah, He will be sufficient.",
-                source: "Quran 65:3",
-                explanation: "True reliance (tawakkul) activates heavenly provisions."
-            },
-            {
-                text: "And We have certainly created man in hardship.",
-                source: "Quran 90:4",
-                explanation: "Struggle is inherent to human growth, not punishment."
-            },
-            {
-                text: "The strong believer is better than the weak believer.",
-                source: "Prophet Muhammad ﷺ (Sahih Muslim)",
-                explanation: "Spiritual strength through worship empowers worldly resilience."
-            },
-            {
-                text: "None of you truly believes until he loves for his brother what he loves for himself.",
-                source: "Prophet Muhammad ﷺ (Sahih al-Bukhari)",
-                explanation: "Empathy is the foundation of faith-based community."
-            },
-            {
-                text: "The best among you are those who have the best character.",
-                source: "Prophet Muhammad ﷺ (Sahih al-Bukhari)",
-                explanation: "Inner beauty outweighs superficial piety."
-            },
-            {
-                text: "Patience is a light.",
-                source: "Prophet Muhammad ﷺ (Sahih Muslim)",
-                explanation: "Steadfastness illuminates life's darkest paths."
-            },
-            {
-                text: "Forgive others, and Allah will forgive you.",
-                source: "Prophet Muhammad ﷺ (Musnad Ahmad)",
-                explanation: "Mercy given becomes mercy received in divine economy."
-            },
-            {
-                text: "You were born with wings. Why prefer to crawl through life?",
-                source: "Rumi",
-                explanation: "Your spiritual potential exceeds earthly limitations."
-            },
-            {
-                text: "The art of knowing is knowing what to ignore.",
-                source: "Ibn Arabi",
-                explanation: "Wisdom lies in discerning between divine truth and worldly noise."
-            },
-            {
-                text: "Your heart is a mirror. Clean it with the light of remembrance.",
-                source: "Rabia al-Adawiyya",
-                explanation: "Dhikr polishes the soul's reflective capacity."
-            },
-            {
-                text: "The antidote to hatred is compassion.",
-                source: "Al-Ghazali",
-                explanation: "Spiritual medicine transforms toxic emotions."
-            },
-            {
-                text: "And whoever fears Allah, He will make a way out for him.",
-                source: "Quran 65:2",
-                explanation: "Consciousness of God unlocks unexpected solutions."
-            },
-            {
-                text: "Allah would not let your faith go to waste.",
-                source: "Quran 2:143",
-                explanation: "Every sincere effort is eternally accounted."
-            },
-            {
-                text: "So remember Me; I will remember you.",
-                source: "Quran 2:152",
-                explanation: "Divine reciprocity transforms simple remembrance into sacred communion."
-            },
-            {
-                text: "The world is a prison for the believer.",
-                source: "Prophet Muhammad ﷺ (Sahih Muslim)",
-                explanation: "Earthly life is temporary confinement before eternal liberation."
-            },
-            {
-                text: "Modesty brings nothing but good.",
-                source: "Prophet Muhammad ﷺ (Sahih al-Bukhari)",
-                explanation: "Spiritual humility attracts divine grace."
-            },
-            {
-                text: "The best charity is that given when you are healthy and greedy.",
-                source: "Prophet Muhammad ﷺ (Sahih al-Bukhari)",
-                explanation: "Generosity during attachment to wealth has greater spiritual weight."
-            },
-            {
-                text: "Be in this world as if you were a stranger.",
-                source: "Prophet Muhammad ﷺ (Sahih al-Bukhari)",
-                explanation: "Detachment enables proper engagement with temporal life."
-            },
-            {
-                text: "What is destined will reach you, even if it be beneath two mountains.",
-                source: "Prophet Muhammad ﷺ (Musnad Ahmad)",
-                explanation: "Divine decree overcomes all apparent obstacles."
-            },
-            {
-                text: "Don't look at your worthiness, look at His worthiness.",
-                source: "Ibn Ata'illah (Hikam)",
-                explanation: "Divine generosity depends on Allah's nature, not our merit."
-            },
-            {
-                text: "The soul is a royal prisoner; treat it with dignity.",
-                source: "Al-Junayd",
-                explanation: "Nurture your spiritual essence despite worldly constraints."
-            },
-            {
-                text: "Your longing for Him is His gift to you.",
-                source: "Abd al-Qadir al-Jilani",
-                explanation: "Spiritual yearning itself is divine grace in motion."
-            },
-            {
-                text: "The heart that beats for Allah is never alone.",
-                source: "Contemporary Sufi Saying",
-                explanation: "Divine connection transcends physical isolation."
-            },
-            {
-                text: "Allah's mercy precedes His wrath.",
-                source: "Prophet Muhammad ﷺ (Sahih al-Bukhari)",
-                explanation: "Divine compassion outweighs punishment in Allah's design."
-            },
-            {
-                text: "The ink of the scholar is holier than the blood of the martyr.",
-                source: "Prophet Muhammad ﷺ (Sunan Ibn Majah)",
-                explanation: "Knowledge-based service has eternal spiritual value."
-            },
-            {
-                text: "You are a universe within a universe.",
-                source: "Ibn Arabi",
-                explanation: "Your spiritual depth mirrors cosmic vastness."
-            },
-            {
-                text: "Die before you die.",
-                source: "Prophet Muhammad ﷺ (Hadith)",
-                explanation: "Ego-death through spiritual practice precedes true living."
             }
         ];
 
@@ -426,39 +277,45 @@
             document.getElementById('quote').innerHTML = `"${quote.text}"`;
             document.getElementById('source').innerHTML = `- ${quote.source}`;
             document.getElementById('explanation').innerHTML = `${quote.explanation}`;
-            
-            // Add subtle animation
-            document.querySelector('.quote-box').style.animation = 'none';
-            setTimeout(() => {
-                document.querySelector('.quote-box').style.animation = 'fadeIn 0.5s';
-            }, 10);
         }
 
         function shareAsImage() {
             const quoteBox = document.getElementById('quoteBox');
 
-            // Temporarily hide buttons for a clean image
-            const buttons = document.querySelectorAll('.button');
-            buttons.forEach(button => button.style.display = 'none');
+            // Create a temporary container for the image
+            const tempContainer = document.createElement('div');
+            tempContainer.style.position = 'fixed';
+            tempContainer.style.top = '0';
+            tempContainer.style.left = '0';
+            tempContainer.style.width = '400px';
+            tempContainer.style.padding = '2rem';
+            tempContainer.style.background = 'linear-gradient(135deg, #2a5a78, #1e4258)';
+            tempContainer.style.borderRadius = '15px';
+            tempContainer.style.color = 'white';
+            tempContainer.style.fontFamily = "'Segoe UI', sans-serif";
+            tempContainer.style.textAlign = 'center';
+            tempContainer.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            tempContainer.style.zIndex = '9999'; // Ensure it's on top
 
-            // Add Sukoon logo to the quote box
-            const logo = document.createElement('div');
-            logo.innerHTML = `
-                <div style="text-align: center; margin-bottom: 1rem;">
-                    <div style="font-size: 1.5rem; color: #2a5a78; font-family: 'Dancing Script', cursive;">Sukoon</div>
-                    <div style="font-size: 0.9rem; color: #7f8c8d;">Find peace in sacred wisdom</div>
-                </div>
+            // Add Sukoon logo and tagline
+            tempContainer.innerHTML = `
+                <div style="font-size: 2rem; font-family: 'Dancing Script', cursive; margin-bottom: 1rem;">Sukoon</div>
+                <div style="font-size: 1rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem;">Find peace in sacred wisdom</div>
+                <div style="font-size: 1.2rem; line-height: 1.5; margin-bottom: 1rem;">${document.getElementById('quote').innerText}</div>
+                <div style="font-style: italic; color: rgba(255, 255, 255, 0.8); margin-top: 1rem;">${document.getElementById('source').innerText}</div>
+                <div style="color: rgba(255, 255, 255, 0.8); margin-top: 1rem;">${document.getElementById('explanation').innerText}</div>
             `;
-            quoteBox.insertBefore(logo, quoteBox.firstChild);
 
-            // Convert quote box to image
-            html2canvas(quoteBox, {
-                backgroundColor: '#ffffff', // White background for the image
+            // Append the temporary container to the body
+            document.body.appendChild(tempContainer);
+
+            // Convert the temporary container to an image
+            html2canvas(tempContainer, {
                 scale: 2, // Higher resolution
                 logging: false // Disable console logs
             }).then(canvas => {
-                // Remove the logo after capturing the image
-                quoteBox.removeChild(logo);
+                // Remove the temporary container
+                document.body.removeChild(tempContainer);
 
                 // Convert canvas to image
                 const image = canvas.toDataURL('image/png');
@@ -478,25 +335,21 @@
                         files: [new File([dataURLtoBlob(image)], 'sukoon-quote.png', { type: 'image/png' })]
                     }).catch(console.error);
                 }
-
-                // Restore buttons
-                buttons.forEach(button => button.style.display = 'inline-block');
             });
         }
 
-        // Helper function to convert data URL to Blob
         function dataURLtoBlob(dataURL) {
-            const byteString = atob(dataURL.split(',')[1]);
-            const mimeString = dataURL.split(',')[0].split(':')[1].split(';')[0];
-            const ab = new ArrayBuffer(byteString.length);
-            const ia = new Uint8Array(ab);
-            for (let i = 0; i < byteString.length; i++) {
-                ia[i] = byteString.charCodeAt(i);
+            const arr = dataURL.split(',');
+            const mime = arr[0].match(/:(.*?);/)[1];
+            const bstr = atob(arr[1]);
+            let n = bstr.length;
+            const u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
             }
-            return new Blob([ab], { type: mimeString });
+            return new Blob([u8arr], { type: mime });
         }
 
-        // Modal Functions
         function openModal() {
             document.getElementById('supportModal').style.display = 'flex';
         }
@@ -505,16 +358,8 @@
             document.getElementById('supportModal').style.display = 'none';
         }
 
-        // Close modal if clicked outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('supportModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        };
-
-        // Generate first quote on load
+        // Initialize with first quote
         generateQuote();
     </script>
 </body>
-</
+</html>
