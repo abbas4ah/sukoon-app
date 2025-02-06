@@ -2,7 +2,7 @@
   "name": "Sukoon",
   "short_name": "Sukoon",
   "description": "Sukoon is a sanctuary for the soul, designed to bring peace and tranquility through timeless Islamic wisdom. Whether you’re seeking comfort during tough times or simply looking to nurture your mental well-being, Sukoon provides daily Islamic quotes that offer deep reflections on peace, resilience, and divine guidance.",
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
