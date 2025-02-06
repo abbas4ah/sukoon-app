@@ -1,47 +1,72 @@
-// This is the "Offline page" service worker
-
+// Import Workbox
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
-const CACHE = "pwabuilder-page";
+const CACHE_NAME = 'sukoon-v2'; // Update the cache version
+const OFFLINE_PAGE = '/offline.html'; // Replace with your offline fallback page
+const ASSETS = [
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/styles.css',
+  '/app.js',
+  '/icons/icon-192x192.png',
+  '/icons/icon-512x512.png'
+];
 
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "ToDo-replace-this-name.html";
-
+// Skip waiting and activate the new service worker immediately
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
   }
 });
 
-self.addEventListener('install', async (event) => {
+// Install event: Cache all necessary assets
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE)
-      .then((cache) => cache.add(offlineFallbackPage))
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(ASSETS))
+      .then(() => self.skipWaiting()) // Activate the new service worker immediately
   );
 });
 
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
-}
+// Activate event: Clean up old caches
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache); // Delete old caches
+          }
+        })
+      );
+    })
+  );
+});
 
+// Fetch event: Serve cached assets or fetch from network
 self.addEventListener('fetch', (event) => {
   if (event.request.mode === 'navigate') {
-    event.respondWith((async () => {
-      try {
-        const preloadResp = await event.preloadResponse;
-
-        if (preloadResp) {
-          return preloadResp;
-        }
-
-        const networkResp = await fetch(event.request);
-        return networkResp;
-      } catch (error) {
-
-        const cache = await caches.open(CACHE);
-        const cachedResp = await cache.match(offlineFallbackPage);
-        return cachedResp;
-      }
-    })());
+    // Handle navigation requests (e.g., HTML pages)
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          // Cache the fetched response
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME)
+            .then((cache) => cache.put(event.request, responseClone));
+          return response;
+        })
+        .catch(() => {
+          // Serve the offline page if the network request fails
+          return caches.match(OFFLINE_PAGE);
+        })
+    );
+  } else {
+    // Handle other requests (e.g., CSS, JS, images)
+    event.respondWith(
+      caches.match(event.request)
+        .then((response) => response || fetch(event.request))
+    );
   }
 });
